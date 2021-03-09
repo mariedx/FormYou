@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist
 
-  validates_presence_of :first_name, :last_name
+  validates :is_validated_by_admin, inclusion: { in: [ true, false ] }
+  validates_presence_of :email, :first_name, :last_name
 end
