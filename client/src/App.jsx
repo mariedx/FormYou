@@ -1,5 +1,6 @@
 import Navbar from 'components/Navbar';
-import { Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import 'style.scss';
 
 const App = () => (
   <div className="App">
@@ -13,7 +14,7 @@ const App = () => (
           <h1>Inscription</h1>
         </Route>
         <Route path="/log-in">
-          <h1>Inscription</h1>
+          <h1>Connexion</h1>
         </Route>
       </Switch>
     </Router>
