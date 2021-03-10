@@ -31,5 +31,4 @@ class Api::UsersController < Api::BaseController
       message: "Destroyed successfully!"
     }
   end
-
 end

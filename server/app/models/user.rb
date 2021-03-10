@@ -9,4 +9,16 @@ class User < ApplicationRecord
   validates_presence_of :email, :first_name, :last_name, :role
 
   belongs_to :role
+
+  def student?
+    role.title == "student"
+  end
+
+  def teacher?
+    role.title == "teacher"
+  end
+
+  def admin?
+    role.title == "admin"
+  end
 end
