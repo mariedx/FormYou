@@ -1,8 +1,4 @@
 class Api::BaseController < ApplicationController
-
-  # Manage authentication later
-  # before_action :authenticate_user!
-
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def not_found
