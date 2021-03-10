@@ -12,6 +12,8 @@ class Formation < ApplicationRecord
   length: { in: 10..1000 }
 
   def is_user_teacher
-    user.teacher?
+    unless user.teacher?
+      errors.add(:role, "must be teacher!")
+    end
   end
 end
