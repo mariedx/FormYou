@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates :is_validated_by_admin, inclusion: { in: [ true, false ] }
   validates_presence_of :email, :first_name, :last_name, :role
 
+  has_many :formations
+
   belongs_to :role
 
   def student?
