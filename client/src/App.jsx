@@ -1,5 +1,6 @@
-import Navbar from 'components/Navbar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navbar from 'components/Navbar';
+import Home from 'pages/Home';
 import 'style.scss';
 
 const App = () => (
@@ -8,7 +9,7 @@ const App = () => (
       <Navbar />
       <Switch>
         <Route path="/" exact>
-          <h1>Home</h1>
+          <Home />
         </Route>
         <Route path="/sign-in">
           <h1>Inscription</h1>
@@ -20,5 +21,4 @@ const App = () => (
     </Router>
   </div>
 );
-
 export default App;
