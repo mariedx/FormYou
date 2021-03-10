@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   default_url_options :host => "http://localhost:3000/"
 
   namespace :api, defaults: { format: :json } do
-    resources :users, only: %w[show]
+    resources :users, only: %i[ :index, :show, :destroy ]
   end
 
   devise_for :users,
