@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: [ :index, :show, :destroy ]
     resources :formations
     resources :classrooms
+    resources :courses
   end
 
   devise_for :users,
