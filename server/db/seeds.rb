@@ -9,3 +9,6 @@
 Role.create(title: "student")
 Role.create(title: "teacher")
 Role.create(title: "admin")
+
+Category.create(title: "design")
+Category.create(title: "web development")

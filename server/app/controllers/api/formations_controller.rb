@@ -1,5 +1,5 @@
 class Api::FormationsController < Api::BaseController
-  
+
   before_action :set_formation, only: [:show, :update, :destroy]
   before_action :authenticate_user!, only: [:create, :update, :destroy]
   before_action :render_if_not_admin, only: [:create, :update, :destroy]
