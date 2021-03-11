@@ -13,7 +13,7 @@ const SearchBar = ({ handleChange, keyword }) => (
           onChange={(e) => handleChange(e.target.value)}
         />
       </label>
-      <input type="submit" value="Categories" className="SearchBar-button" />
+      {/* <input type="submit" value="Categories" className="SearchBar-button" /> */}
     </form>
   </div>
 );

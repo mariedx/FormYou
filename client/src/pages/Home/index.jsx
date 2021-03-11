@@ -36,6 +36,7 @@ const Home = () => {
   useEffect(() => { fetchData(); }, []);
 
   return (
+
     <div className="Home">
       <div className="jumbotron">
         <Jumbotron>

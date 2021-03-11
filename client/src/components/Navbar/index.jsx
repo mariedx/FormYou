@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <div className="Navbar">
-      <Link to="/" className="Navbar__title">FormYou</Link>
+      <Link to="/" className="Navbar__title"> 🍊 FormYou</Link>
       <div className="Navbar__right">
         {!currentUser.id && (
           <>
