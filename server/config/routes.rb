@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :formations
     resources :classrooms
     resources :courses
+    resources :courses_users
   end
 
   devise_for :users,
