@@ -1,14 +1,15 @@
 import React from 'react';
-import './style.scss';
+import FormationCard from '../FormationCard';
 
 const FormationList = ({ formationList = [] }) => (
   <div className="FormationList">
     { formationList.map((data) => {
       if (data) {
         return (
-          <div key={data.id}>
-            <h1>{data.title}</h1>
-          </div>
+          <FormationCard
+            key={data.id}
+            formation={data}
+          />
         );
       }
       return null;
