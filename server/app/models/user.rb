@@ -9,6 +9,8 @@ class User < ApplicationRecord
   validates_presence_of :email, :first_name, :last_name, :role
 
   has_many :formations
+  has_many :courses_users
+  has_many :courses, through: :courses_users
 
   belongs_to :role
 
