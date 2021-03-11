@@ -8,6 +8,7 @@ import Home from 'pages/Home';
 import 'style.scss';
 import SignUp from 'pages/SignUp';
 import LogIn from 'pages/LogIn';
+import Profile from 'pages/Profile';
 import FormationPage from './pages/FormationPage';
 
 const App = () => (
@@ -26,6 +27,9 @@ const App = () => (
         </Route>
         <Route path="/formations/:formationId">
           <FormationPage />
+        </Route>
+        <Route path="/profile">
+          <Profile />
         </Route>
       </Switch>
     </Router>

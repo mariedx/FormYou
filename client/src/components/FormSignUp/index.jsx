@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import API_BASE_URL from 'services/api';
+// import Cookies from 'js-cookie';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+// import { checkIn, CurrentUser } from '../../stores/actions';
 // import useFetch from 'services/api/users';
+import { authenticate } from 'stores/users/userActions';
 
 const url = `${API_BASE_URL}signup`;
 
@@ -11,6 +16,8 @@ const FormSignUp = () => {
   const [emailValue, setEmailValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
   const [passwordConfirmationValue, setPasswordConfirmationValue] = useState('');
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleFirstName = (e) => {
     const { value } = e.target;
@@ -60,8 +67,38 @@ const FormSignUp = () => {
       },
       body: JSON.stringify(userData),
     });
+
+    if (response.status !== 200) {
+      alert('Erreur durant l\'inscription!');
+      return;
+    }
+
+    const token = response.headers.get('Authorization').split('Bearer ')[1];
+
     const data = await response.json();
-    console.log(data);
+    const userDataResponse = data.data.attributes;
+    const userDataResponseId = data.data.id;
+
+    dispatch(authenticate({
+      id: userDataResponseId,
+      email: userDataResponse.email,
+      first_name: userDataResponse.first_name,
+      last_name: userDataResponse.last_name,
+      role: userDataResponse.role,
+    }, token));
+
+    history.push('/');
+
+    // const userInfo = () => {
+    //   Cookies.set('token', userInfo.jwt);
+    //   // eslint-disable-next-line no-console
+    //   console.log(userInfo);
+    //   dispatch(checkIn());
+    //   dispatch(CurrentUser({
+    //     email: userInfo.emailValue,
+    //     firstName: userInfo.firstNameValue,
+    //   }));
+    // };
   };
 
   // const url = newUser && newUser.email;
