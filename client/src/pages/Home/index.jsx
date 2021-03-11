@@ -1,5 +1,5 @@
-import Jumbotron from 'react-bootstrap/Jumbotron';
 import React from 'react';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 import SearchBar from 'components/SearchBar';
 import './style.scss';
 import FormationList from 'components/FormationList';
