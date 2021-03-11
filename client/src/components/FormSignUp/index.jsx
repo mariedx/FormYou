@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import API_BASE_URL from 'services/api';
+// import Cookies from 'js-cookie';
+import { useDispatch } from 'react-redux';
+// import { useHistory } from 'react-router-dom';
+// import { checkIn, CurrentUser } from '../../stores/actions';
 // import useFetch from 'services/api/users';
+import { authenticate } from 'stores/users/userActions';
 
 const url = `${API_BASE_URL}signup`;
 
@@ -11,6 +16,8 @@ const FormSignUp = () => {
   const [emailValue, setEmailValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
   const [passwordConfirmationValue, setPasswordConfirmationValue] = useState('');
+  const dispatch = useDispatch();
+  // const history = useHistory();
 
   const handleFirstName = (e) => {
     const { value } = e.target;
@@ -60,8 +67,33 @@ const FormSignUp = () => {
       },
       body: JSON.stringify(userData),
     });
+
+    if (response.status !== 200) {
+      alert('error during sign up!');
+      return;
+    }
+
+    const token = response.headers.get('Authorization').split('Bearer ')[1];
+
     const data = await response.json();
-    console.log(data);
+    const userDataResponse = data.data.attributes;
+    dispatch(authenticate({
+      email: userDataResponse.email,
+      first_name: userDataResponse.first_name,
+      last_name: userDataResponse.last_name,
+      role: userDataResponse.role,
+    }, token));
+    // const userInfo = () => {
+    //   Cookies.set('token', userInfo.jwt);
+    //   // eslint-disable-next-line no-console
+    //   console.log(userInfo);
+    //   dispatch(checkIn());
+    //   dispatch(CurrentUser({
+    //     email: userInfo.emailValue,
+    //     firstName: userInfo.firstNameValue,
+    //   }));
+    //   history.push('/');
+    // };
   };
 
   // const url = newUser && newUser.email;
