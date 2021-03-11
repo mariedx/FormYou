@@ -7,8 +7,7 @@
 }
 
 .SearchBar-input {
-  padding-left: 15px;
-  color: aquamarine;
+  padding-left: 15px
 }
 
 .SearchBar-button{
@@ -19,4 +18,14 @@
   width: 100px;
   padding: 2px;
   color: white;
+}
+
+input:hover{
+  outline: 0;
+  border: 1px solid;
+}
+
+input:focus{
+  outline: 0;
+  border: 1px solid;
 }
