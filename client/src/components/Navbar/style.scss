@@ -8,7 +8,8 @@
 
   &__title {
     font-size: 1.8rem;
-    padding: 20px
+    padding: 20px;
+    color: rgb(255, 255, 255);
   }
 
   &__right {
@@ -19,5 +20,7 @@
   &__link {
     width: 15%;
     padding: 20px;
+    color: rgb(68, 67, 67);
+
   }
 }

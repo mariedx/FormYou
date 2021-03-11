@@ -3,6 +3,7 @@
 import { React, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import API_BASE_URL from '../../api';
+import './style.scss';
 
 const FormationPage = () => {
   const { formationId } = useParams();
@@ -40,8 +41,9 @@ const FormationPage = () => {
     <div className="FormationPage">
       <h1>{dispalyedFormation.title}</h1>
       <p>{dispalyedFormation.description}</p>
-      <p>{dispalyedFormation.user_id}</p>
-      <p>{coursesList.map((course) => course.date)}</p>
+
+      <h2>Nos prochaines sessions : </h2>
+      <ul>{coursesList.map((course) => `➡️ ${course.date}`)}</ul>
     </div>
   );
 };
