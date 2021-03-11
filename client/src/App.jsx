@@ -8,6 +8,7 @@ import Home from 'pages/Home';
 import 'style.scss';
 import SignUp from 'pages/SignUp';
 import LogIn from 'pages/LogIn';
+import Profile from 'pages/Profile';
 
 const App = () => (
   <div className="App">
@@ -22,6 +23,9 @@ const App = () => (
         </Route>
         <Route path="/log-in">
           <LogIn />
+        </Route>
+        <Route path="/profile">
+          <Profile />
         </Route>
       </Switch>
     </Router>
