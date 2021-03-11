@@ -1,5 +1,6 @@
 import React from 'react';
 import FormationCard from '../FormationCard';
+import './style.scss';
 
 const FormationList = ({ formationList = [] }) => (
   <div className="FormationList">
