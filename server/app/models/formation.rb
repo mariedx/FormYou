@@ -11,6 +11,9 @@ class Formation < ApplicationRecord
   presence: true,
   length: { in: 10..1000 }
 
+  has_many :formations_categories
+  has_many :categories, through: :formations_categories
+
   def is_user_teacher
     unless user.teacher?
       errors.add(:role, "must be teacher!")

@@ -1,7 +1,13 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom';
 import Navbar from 'components/Navbar';
 import Home from 'pages/Home';
 import 'style.scss';
+import SignUp from 'pages/SignUp';
+import LogIn from 'pages/LogIn';
 
 const App = () => (
   <div className="App">
@@ -11,11 +17,11 @@ const App = () => (
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route path="/sign-in">
-          <h1>Inscription</h1>
+        <Route path="/sign-up">
+          <SignUp />
         </Route>
         <Route path="/log-in">
-          <h1>Connexion</h1>
+          <LogIn />
         </Route>
       </Switch>
     </Router>

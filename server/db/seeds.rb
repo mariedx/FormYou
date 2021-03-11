@@ -92,3 +92,12 @@ Course.create(
 
 puts "$" * 50
 puts "Courses created"
+
+puts "$" * 50
+puts "Creating two categories"
+
+Category.create(title: "design")
+Category.create(title: "web development")
+
+puts "$" * 50
+puts "Categories created"
