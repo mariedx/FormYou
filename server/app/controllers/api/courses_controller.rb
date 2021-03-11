@@ -1,7 +1,7 @@
 class Api::CoursesController < Api::BaseController
   before_action :set_course, only: [:show, :update, :destroy]
-  before_action :authenticate_user!
-  before_action :render_if_not_admin
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :render_if_not_admin, except: [:index, :show]
 
   # GET /courses
   def index
