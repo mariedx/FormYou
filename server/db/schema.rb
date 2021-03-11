@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_164828) do
+ActiveRecord::Schema.define(version: 2021_03_11_114159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,26 @@ ActiveRecord::Schema.define(version: 2021_03_10_164828) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.date "date", null: false
+    t.bigint "classroom_id", null: false
+    t.bigint "formation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["classroom_id"], name: "index_courses_on_classroom_id"
+    t.index ["formation_id"], name: "index_courses_on_formation_id"
+  end
+
+  create_table "courses_users", force: :cascade do |t|
+    t.integer "note"
+    t.bigint "course_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_courses_users_on_course_id"
+    t.index ["user_id"], name: "index_courses_users_on_user_id"
   end
 
   create_table "formations", force: :cascade do |t|
@@ -72,6 +92,10 @@ ActiveRecord::Schema.define(version: 2021_03_10_164828) do
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "courses", "classrooms"
+  add_foreign_key "courses", "formations"
+  add_foreign_key "courses_users", "courses"
+  add_foreign_key "courses_users", "users"
   add_foreign_key "formations", "users"
   add_foreign_key "users", "roles"
 end
