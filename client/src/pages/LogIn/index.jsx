@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './style.scss';
 import API_BASE_URL from 'services/api';
+import { useDispatch } from 'react-redux';
+import { authenticate } from 'stores/users/userActions';
 
 const url = `${API_BASE_URL}login`;
 
@@ -9,6 +11,7 @@ const LogIn = () => {
   const [emailValue, setEmailValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleEmail = (e) => {
     const { value } = e.target;
@@ -28,6 +31,7 @@ const LogIn = () => {
         password: passwordValue,
       },
     };
+
     const response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -35,9 +39,26 @@ const LogIn = () => {
       },
       body: JSON.stringify(userData),
     });
+
+    if (response.status !== 200) {
+      alert('Erreur durant la connexion');
+      return;
+    }
+
     const data = await response.json();
+    const userDataResponse = data.data.attributes;
+    const userDataResponseId = data.data.id;
+    const token = response.headers.get('Authorization').split('Bearer ')[1];
+
+    dispatch(authenticate({
+      id: userDataResponseId,
+      email: userDataResponse.email,
+      first_name: userDataResponse.first_name,
+      last_name: userDataResponse.last_name,
+      role: userDataResponse.role,
+    }, token));
+
     history.push('/');
-    console.log(data);
   };
 
   return (
@@ -63,4 +84,5 @@ const LogIn = () => {
     </div>
   );
 };
+
 export default LogIn;
