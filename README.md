@@ -6,9 +6,9 @@ En raison d'une petite PLS nous serons ravis de vous streamer notre projet qui n
 
 Enjoy ! 
 
-- [Maxime Wong](https://github.com/HugoPeranSejourne)
+- [Maxime Wong](https://github.com/Mtwod)
 - [Clémentine Fouqué](https://github.com/Clem-svg)
-- [Coline Brault](https://github.com/mathieu-superpose)
+- [Coline Brault](https://github.com/colinebrlt)
 - [Benjamin Serval](https://github.com/BenjaminServal)
 - [Marie Dechaux](https://github.com/mariedx)
 
