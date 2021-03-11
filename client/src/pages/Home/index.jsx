@@ -16,7 +16,6 @@ const Home = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setFormationList(data);
         setFormationListDefault(data);
       });

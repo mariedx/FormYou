@@ -20,4 +20,14 @@
     width: 15%;
     padding: 20px;
   }
+
+  &__logoutButton {
+    font-weight: bolder;
+    border: none;
+    background: none;
+    padding: 10px;
+    border: solid 2px red;
+    border-radius: 10px;
+    cursor: pointer;
+  }
 }

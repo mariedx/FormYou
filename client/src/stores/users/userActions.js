@@ -27,8 +27,8 @@ const authenticate = (user, token) => {
   };
 };
 
-const logOut = () => ({
+const logout = () => ({
   type: LOG_OUT,
 });
 
-export { authenticate, logOut };
+export { authenticate, logout };
