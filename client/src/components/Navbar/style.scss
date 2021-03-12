@@ -1,0 +1,36 @@
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 50px;
+  align-items: center;
+  height: 80px;
+  background-color: var(--color-primary);
+
+  &__title {
+    font-size: 1.8rem;
+    padding: 20px;
+    color: rgb(255, 255, 255);
+  }
+
+  &__right {
+    float: right;
+    justify-content: space-between;
+  }
+
+  &__link {
+    width: 15%;
+    padding: 20px;
+    color: rgb(68, 67, 67);
+
+  }
+
+  &__logoutButton {
+    font-weight: bolder;
+    border: none;
+    background: none;
+    padding: 10px;
+    border: solid 2px red;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+}

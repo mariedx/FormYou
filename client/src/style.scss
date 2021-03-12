@@ -1,0 +1,18 @@
+@import './variables.scss';
+@import './assets/fonts/style.scss';
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  font-family: 'Rubik', Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text);
+  outline-style: none;
+  font-weight: bold;
+}

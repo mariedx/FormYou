@@ -1,0 +1,31 @@
+.SearchBar-input  {
+  border-radius: 20px;
+  margin-right: 10px;
+  width: 350px;
+  height: 25px;
+  border: none;
+}
+
+.SearchBar-input {
+  padding-left: 15px
+}
+
+.SearchBar-button{
+  background-color: #a99b9c;
+  border-radius: 5px;
+  border: none;
+  height: 25px;
+  width: 100px;
+  padding: 2px;
+  color: white;
+}
+
+input:hover{
+  outline: 0;
+  border: 1px solid;
+}
+
+input:focus{
+  outline: 0;
+  border: 1px solid;
+}
