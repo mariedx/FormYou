@@ -3,7 +3,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import './style.scss';
 import FormationList from 'components/FormationList';
 import SearchBar from 'components/SearchBar';
-import API_BASE_URL from '../../api';
+import API_BASE_URL from 'services/api';
 
 const Home = () => {
   const [searchInput, setSearchInput] = useState('');
